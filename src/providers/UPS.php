@@ -269,7 +269,7 @@ class UPS extends Provider
             $rates = $this->_client->shopRates($shipment);
 
             // Check for Sure Post rates - must be a separate request
-            if ($this->services['S_SURE_POST']->enabled) {
+            if (isset($this->services['S_SURE_POST']) && $this->services['S_SURE_POST']->enabled) {
                 $service = new Service;
                 $service->setCode(Service::S_SURE_POST);
                 $service->setDescription($service->getName());
